@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import GraceLogo from './GraceLogo'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -21,9 +22,7 @@ export default function Navbar() {
   return (
     <nav className="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30 shadow-sm">
       <div className="flex justify-between items-center max-w-container-max mx-auto px-lg py-sm">
-        <Link to="/" className="text-headline-md font-bold text-primary tracking-tight">
-          Grace Financial
-        </Link>
+        <GraceLogo />
         <div className="hidden lg:flex items-center gap-lg">
           {links.map((link) => (
             <Link

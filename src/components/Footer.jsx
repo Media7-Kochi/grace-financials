@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
+import GraceLogo from './GraceLogo'
 
 export default function Footer() {
   return (
     <footer className="bg-primary w-full mt-giant border-t border-outline/20">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-xl max-w-container-max mx-auto px-lg py-xxl">
         <div className="flex flex-col gap-md">
-          <div className="text-headline-sm font-bold text-on-primary">Grace Financial</div>
+          <GraceLogo />
           <p className="text-on-primary-container text-body-sm">Your premier destination for expert financial consultancy and loan processing services in India.</p>
         </div>
         <div>
