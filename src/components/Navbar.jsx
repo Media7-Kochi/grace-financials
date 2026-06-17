@@ -39,7 +39,7 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center gap-md">
-          <Link to="/contact" className="bg-primary-container text-white px-lg py-sm rounded-lg font-label-lg hover:scale-95 transition-transform hidden sm:inline-block">
+          <Link to="/apply" className="bg-primary-container text-white px-lg py-sm rounded-lg font-label-lg hover:scale-95 transition-transform hidden sm:inline-block">
             Apply Now
           </Link>
           <button
@@ -68,7 +68,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setMobileOpen(false)} className="bg-primary-container text-white px-lg py-sm rounded-lg font-label-lg text-center mt-sm">
+            <Link to="/apply" onClick={() => setMobileOpen(false)} className="bg-primary-container text-white px-lg py-sm rounded-lg font-label-lg text-center mt-sm">
               Apply Now
             </Link>
           </div>

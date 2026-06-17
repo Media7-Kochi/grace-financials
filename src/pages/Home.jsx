@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <main className="mt-giant">
       {/* Hero Section */}
-      <section className="relative pb-xxl md:pb-giant bg-primary overflow-hidden min-h-[600px]">
+      <section className="relative pb-xxl md:pb-giant bg-primary overflow-hidden min-h-[700px]">
         <div className="absolute inset-0 z-0 opacity-40">
           <img
             className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCESF05KQMYNDoQ4FtqA2r3k5BvD3Wvciogszma4zAd-Cri3YwG73LNqyAnyWZbjNjrQHoWN8avAhDz6xOiKrkFxDvxzT14vWoD13ufRrR8K1-u5tIzv8UZsvPIAGEMeiFTsKQYZgK_vRhjr7rP10Axo2TGRgqur31wbWiMuiJlxvLP0R-ryLP7iO2FRsFh2fh6hqv5DQ8hXe6aFrICxcdhpLoIFAteB4gFIVjaNle6vw1F8rirn7v-Bg"
+            src="https://5.imimg.com/data5/SELLER/Default/2021/12/UI/GZ/DT/51665645/finance-oraganisation-office-interior-design-1000x1000.png"
             alt=""
           />
         </div>
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="relative">
               <img
                 className="rounded-2xl shadow-xl z-10 relative"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeYIpuQHDZ_sxmrpzjW9ENaaX9l97eyH9J5joIuvNcfoFC14IUzi_s0ZokSNbuKOheEr8Pw8yMIWY1jJEfjoBlHx2wuUzfrqfN36ue3YOkln7laR9FXtKpW1nNNcMSaTq63rqOPL6LseUdeUkLVxT1mzpOqDGmya9BshS9itt_VssEOWjSDQUUC4BYgtoNsYkJcCZS75EUbrVWm9sKdq4sSAaA96QNONM3Z2BEwNAHgz-a-z6FTaqFrQ"
+                src="https://agrimhfc.com/wp-content/uploads/2022/04/agrim-hfc.png"
                 alt="Financial advisor consulting with client"
               />
               <div className="absolute -bottom-6 -right-6 bg-primary p-lg rounded-xl shadow-lg z-20 text-white hidden md:block">

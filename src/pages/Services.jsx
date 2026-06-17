@@ -22,7 +22,7 @@ export default function Services() {
             From personal milestones to business expansions, we provide structured credit solutions with transparency and speed.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-md">
-            <Link to="/contact" className="bg-primary text-on-primary px-giant py-md rounded-lg text-label-lg hover:shadow-lg transition-all inline-block">
+            <Link to="/apply" className="bg-primary text-on-primary px-giant py-md rounded-lg text-label-lg hover:shadow-lg transition-all inline-block">
               Schedule Consultation
             </Link>
             <Link to="/services" className="border-2 border-secondary text-secondary px-giant py-md rounded-lg text-label-lg hover:bg-secondary/5 transition-all inline-block">
@@ -53,7 +53,7 @@ export default function Services() {
                   <span className="px-md py-xs bg-surface-container-low rounded-full text-on-surface-variant text-label-md">Used SUVs</span>
                   <span className="px-md py-xs bg-surface-container-low rounded-full text-on-surface-variant text-label-md">Fleet Finance</span>
                 </div>
-                <Link to="/contact" className="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-lg hover:opacity-90 inline-block">Apply Now</Link>
+                <Link to="/apply" className="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-lg hover:opacity-90 inline-block">Apply Now</Link>
               </div>
             </div>
           </section>
@@ -77,7 +77,7 @@ export default function Services() {
                 ))}
               </ul>
             </div>
-            <Link to="/contact" className="w-full bg-on-primary text-primary py-sm rounded-lg text-label-lg text-center inline-block">Apply Now</Link>
+            <Link to="/apply" className="w-full bg-on-primary text-primary py-sm rounded-lg text-label-lg text-center inline-block">Apply Now</Link>
           </section>
 
           {/* Home Loan */}
@@ -90,7 +90,7 @@ export default function Services() {
               <div className="p-sm bg-surface-container rounded-lg font-label-md text-on-surface-variant">Home Renovation</div>
               <div className="p-sm bg-surface-container rounded-lg font-label-md text-on-surface-variant">Balance Transfer</div>
             </div>
-            <Link to="/contact" className="text-secondary font-label-lg flex items-center gap-sm group">
+            <Link to="/apply" className="text-secondary font-label-lg flex items-center gap-sm group">
               Apply Now <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Link>
           </section>
@@ -122,13 +122,13 @@ export default function Services() {
                     <span className="font-label-md">Easy Docs</span>
                   </div>
                 </div>
-                <Link to="/contact" className="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-lg inline-block">Apply Now</Link>
+                <Link to="/apply" className="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-lg inline-block">Apply Now</Link>
               </div>
               <div className="hidden md:block w-1/3">
                 <div className="p-lg bg-surface-container-highest rounded-xl border border-outline/20">
                   <h4 className="font-label-lg mb-sm">MSME Special</h4>
                   <p className="text-body-sm mb-md">Special interest waivers for registered MSMEs.</p>
-                  <Link to="/contact" className="text-secondary text-label-sm underline">Register MSME Now</Link>
+                  <Link to="/apply" className="text-secondary text-label-sm underline">Register MSME Now</Link>
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function Services() {
                   <span className="text-label-sm text-on-primary-container">Deployment</span>
                 </div>
               </div>
-              <Link to="/contact" className="btn-premium px-giant py-md rounded-lg text-label-lg shadow-xl inline-block">Apply Now</Link>
+              <Link to="/apply" className="btn-premium px-giant py-md rounded-lg text-label-lg shadow-xl inline-block">Apply Now</Link>
             </div>
             <div className="relative z-10 w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-white/10">
               <img
@@ -187,7 +187,7 @@ export default function Services() {
                 </li>
               ))}
             </ul>
-            <Link to="/contact" className="w-full border border-secondary text-secondary py-sm rounded-lg text-label-lg hover:bg-secondary/5 block text-center">Apply Now</Link>
+            <Link to="/apply" className="w-full border border-secondary text-secondary py-sm rounded-lg text-label-lg hover:bg-secondary/5 block text-center">Apply Now</Link>
           </section>
 
           {/* Property Loan */}
@@ -203,7 +203,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="w-full bg-primary text-on-primary py-sm rounded-lg text-label-lg block text-center">Apply Now</Link>
+            <Link to="/apply" className="w-full bg-primary text-on-primary py-sm rounded-lg text-label-lg block text-center">Apply Now</Link>
           </section>
 
           {/* Mudra Loan */}
@@ -218,7 +218,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="w-full bg-primary text-on-primary py-sm rounded-lg text-label-lg block text-center">Apply Now</Link>
+            <Link to="/apply" className="w-full bg-primary text-on-primary py-sm rounded-lg text-label-lg block text-center">Apply Now</Link>
           </section>
 
         </div>

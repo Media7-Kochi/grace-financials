@@ -32,15 +32,15 @@ export default function Contact() {
             <form className="grid grid-cols-1 md:grid-cols-2 gap-lg" onSubmit={handleSubmit}>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Full Name</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="John Doe" type="text" required />
+                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="your full name" type="text" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Phone Number</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="+91 98765 43210" type="tel" required />
+                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="your phone number" type="tel" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Email Address</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="john@example.com" type="email" required />
+                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="your email address" type="email" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Loan Type</label>
@@ -81,8 +81,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-label-md text-on-surface-variant">Phone</p>
-                  <p className="text-body-lg text-primary">+91 22 4567 8900</p>
-                  <p className="text-body-md text-on-surface-variant">+91 98200 12345</p>
+                  <p className="text-body-lg text-primary">+91 99955 33809</p>
+                  <p className="text-body-md text-on-surface-variant">+91 97782 92234</p>
                 </div>
               </div>
               <div className="flex gap-lg items-start">
@@ -91,8 +91,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-label-md text-on-surface-variant">Email</p>
-                  <p className="text-body-lg text-primary">support@gracefinancial.com</p>
-                  <p className="text-body-md text-on-surface-variant">invest@gracefinancial.com</p>
+                  <p className="text-body-xl text-primary">info.gracefinancialconsultency@gmail.com</p>
+                  <p className="text-body-md text-on-surface-variant">anvikochi@gmail.com</p>
                 </div>
               </div>
               <div className="flex gap-lg items-start">
@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-label-md text-on-surface-variant">Office Address</p>
-                  <p className="text-body-lg text-primary">The Executive Suite, Level 15<br/>Bandra Kurla Complex<br/>Mumbai, MH 400051</p>
+                  <p className="text-body-lg text-primary">3rd floor, National Pearl Star Building National Builders, 3D, behind Changampuzha Metro Station, Edappally, Kochi, Kerala 682024</p>
                 </div>
               </div>
             </div>
@@ -112,8 +112,7 @@ export default function Contact() {
                 <span className="bg-emerald-500/20 text-emerald-300 text-label-sm px-sm py-xs rounded-full">Open Now</span>
               </div>
               <ul className="space-y-sm text-body-md opacity-80">
-                <li className="flex justify-between"><span>Monday - Friday</span><span>09:00 AM - 06:00 PM</span></li>
-                <li className="flex justify-between"><span>Saturday</span><span>09:00 AM - 01:00 PM</span></li>
+                <li className="flex justify-between"><span>Monday - Saturday</span><span>09:30 AM - 05:30 PM</span></li>
                 <li className="flex justify-between text-on-primary-container/60"><span>Sunday</span><span>Closed</span></li>
               </ul>
               <hr className="border-on-primary-container/20" />

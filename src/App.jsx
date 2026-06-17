@@ -10,6 +10,7 @@ import Eligibility from './pages/Eligibility'
 import SuccessStories from './pages/SuccessStories'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Application from './pages/Application'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/apply" element={<Application />} />
         </Routes>
       </main>
       <Footer />

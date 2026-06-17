@@ -25,7 +25,7 @@ export default function About() {
             <div className="absolute -inset-4 bg-secondary-container/10 rounded-xl blur-2xl group-hover:bg-secondary-container/20 transition-all duration-500"></div>
             <img
               className="relative rounded-xl shadow-2xl w-full h-[500px] object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7d4BF2FNzjt6HsfXzJvGkGGCqftni9-RbIf2fiYcCxZmEcTtK4-Qz0OE8_PkyaJ8GNWVOfT6pI_AdQqyn0iYg88eYiV4Lxh261el65LH0XeNx3RQKspWJen9z1MZSYJYSDfIfQQxQYYllJK5ObuhKQS1napDS_4A_OkkScCyX2XKLR1VQKhlITxzE5hySKJcS8vEo8h7Ob4REv68SmywdhGUDprjROkJ1V-u7Vp9Zghc_GjyAEe38Q"
+              src="https://blog3.indifi.com/wp-content/uploads/2018/04/The-Surprising-Benefit-of-Digital-Payments%E2%80%8A%E2%80%94%E2%80%8AAvailability-of-Microloans-444x300.jpeg"
               alt="Grace Financial Office"
             />
           </div>
@@ -144,14 +144,11 @@ export default function About() {
             <h2 className="text-headline-lg text-primary mb-sm">Leadership Team</h2>
             <p className="text-body-md text-on-surface-variant max-w-2xl mx-auto">Meet the experts behind our commitment to excellence.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-xl">
+          <div className="flex justify-center">
             {[
-              { name: 'Vikram Malhotra', role: 'Founder & CEO', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCpdqzFEJJmQza_ueE7BKYZwtkmQ40OfGJCS7YImAgGxRGvEQgGHR81o2-8wJz_9TVQaM0uAlMkS8JIFRtE_NKuAImVzu2LFsC3A31vu09__OeMpfOdYHvU5Wcq3QoO02w8B2xsrUpr3ZIx5-YTi_qNVUzbN4ybNdai0XjUCpsVcDw9jnNLwkma5lJBJKlJcSEWF20uu74ewE-jBE7ik59xnB6F9piHmRsSFIwBdPDSfIM1bAWYcFLuKQ' },
-              { name: 'Ananya Sharma', role: 'Chief Operating Officer', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXxt_sBImF1dSpSkF6irXPgwD8CW_aoDmxp5z_OD7lV58o1Wft4gUnXxG72seyB5iQgbJDojckAz2Idbtr7bcVZdvmOp6nqToXLefNqHtSTavSZSs1kI196dvC3Mjs0ZmQQNczoWERfuwseppTwGnEmb5X-1wHceHhF1a32mGLoUMRDcc_LqYifzaVnh_-KLwf1D-5GX3bifJ_l7snQydFEoIOzOxOOFHaxax_af6YSj_C3m0-SZH6zQ' },
-              { name: 'Rajesh Iyer', role: 'Head of Lending', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCijqHbg6fruNGj6M7eq8oeQEEiSalMvN5N6rwt03OHP0FYeSDdZYSS0FuTNgTfqy1rQVcrHOoUg6wEoAZ1_ly9uC7AMWT6zxYHjlbaGid_8G8UP15KVrBPJEsLo48PRwwl2OUQ9YxvkZJOo9TUHZJa9vdcmzPwHal-TTV9DlWq4gXaVrGgm7bmubHVIUv-g2CiXYYzODdzt_VmjH8BECiIQwEwNa808HMPxSDze3f6OgXzJ2K3d-_ofA' },
-              { name: 'Sanya Kapoor', role: 'Chief Compliance Officer', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCez4LoJtqsvZx8db-34knKQq_3fjMmBo0BRKalBjaIqjLODwZqiDcPg4RwYbCSQcg44qldAbOkIV10PV_T2ubuhTSomPSmFpi0Orc5kmHLoqOJFdhuOzRaWYqW-_e7Cqp1-Am5HIj-PwekKOh_-kKrHo2zBSDHXWDoEghb0NPwb0XQ2ai0icTiVXo-4WbwZqxT4Hdhh5FgunpXcIKdmMUIPbZ1p5MvBZB2TnU0B5kJo_5vXka4nr8eqQ' },
+              { name: 'Vikram Malhotra', role: 'Founder & CEO', img: 'https://raw.githubusercontent.com/33binil/media7kochi/a65dd1ff7de8419edcccf432558fd75e31f2c943/public/CEO_of_Media7.webp' },
             ].map((m) => (
-              <div key={m.name} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <div key={m.name} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 max-w-xs">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

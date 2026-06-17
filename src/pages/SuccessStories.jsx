@@ -87,41 +87,6 @@ export default function SuccessStories() {
         </div>
       </section>
 
-      <section className="py-xxl">
-        <div className="max-w-container-max mx-auto px-lg">
-          <div className="text-center mb-xxl">
-            <h2 className="text-headline-lg text-primary mb-sm">Video Chronicles</h2>
-            <p className="text-on-surface-variant text-body-md">In-depth conversations with our partners in success.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
-            <div className="group relative aspect-video rounded-xl overflow-hidden shadow-xl cursor-pointer">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfgOhqJLZmDivsnJa5rJfx0lPM389HplcNVOiyEoFTA1LzeDng_RmdgiYQyl371PSJm_uJA79asmzc3W9Q3DKKGCmKAYvCn6_negUTNE8kuJyG_TenmUMIafXjxaLiHQcBjrNzKjmqMtdbQ8qgdSx4KBvWB9NLm7wTML0pE3QpkR7pZdyM8VHdrvE_rJ0sh99hAR9CZ8ZKYCvXThBimUtHdNHHPrMrUwoHsy92GOpaT0V6DZwaiqOx-w"/>
-              <div className="absolute inset-0 bg-primary/30 group-hover:bg-primary/20 transition-all flex items-center justify-center">
-                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-lg bg-gradient-to-t from-primary/80 to-transparent">
-                <h3 className="text-on-primary text-headline-sm">Empowering Local Manufacturing</h3>
-                <p className="text-on-primary/80 text-body-sm">A deep dive with Mittal Industries on their growth journey.</p>
-              </div>
-            </div>
-            <div className="group relative aspect-video rounded-xl overflow-hidden shadow-xl cursor-pointer">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmLyyucU_BjIRYnCpbLOLll9T54dVDjXRZxeRVgiSokK3SnzuGasIV-XQLPt2GI1uZcEtcYWqNg_ph81KB7m41aaAfUdWWUCgbZT1jobyegYJ7_ucU-IHvyNvw8HOS-3sHLhw5_vCIgnuysZ_ixHWeD9Vx1ISv4fAKdd-mm_eXrqloyttZVIcQVZaVm1TtAPFJffOpJAkAiA1icik_wG9HSn4zow3MFE_5mAnCjeWVEQgk7Duz2OThzg"/>
-              <div className="absolute inset-0 bg-primary/30 group-hover:bg-primary/20 transition-all flex items-center justify-center">
-                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-lg bg-gradient-to-t from-primary/80 to-transparent">
-                <h3 className="text-on-primary text-headline-sm">The Road to First Ownership</h3>
-                <p className="text-on-primary/80 text-body-sm">How the Iyer family secured their dream home in Bengaluru.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-xxl bg-primary text-on-primary">
         <div className="max-w-container-max mx-auto px-lg">
           <div className="mb-xxl text-center md:text-left">

@@ -46,13 +46,13 @@ export default function Footer() {
           <h5 className="text-white font-label-lg mb-lg">Contact Info</h5>
           <ul className="space-y-sm">
             <li className="flex items-center gap-sm text-on-primary-container text-body-sm">
-              <span className="material-symbols-outlined text-body-sm">call</span> +91 98765 43210
+              <span className="material-symbols-outlined text-body-sm">call</span> +91 99955 33809
             </li>
             <li className="flex items-center gap-sm text-on-primary-container text-body-sm">
-              <span className="material-symbols-outlined text-body-sm">mail</span> contact@gracefinancial.com
+              <span className="material-symbols-outlined text-body-sm">mail</span> info.gracefinancialconsultency@gmail.com
             </li>
             <li className="flex items-start gap-sm text-on-primary-container text-body-sm">
-              <span className="material-symbols-outlined text-body-sm">location_on</span> Mumbai Financial District, Maharashtra, India
+              <span className="material-symbols-outlined text-body-sm">location_on</span> 3rd floor, National Pearl Star Building National Builders, 3D, behind Changampuzha Metro Station, Edappally, Kochi, Kerala 682024
             </li>
           </ul>
         </div>
