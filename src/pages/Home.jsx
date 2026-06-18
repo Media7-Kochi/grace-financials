@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useReveal, revealStyle } from '../hooks/useReveal'
 
 const testimonials = [
   {
@@ -23,27 +24,43 @@ const services = [
 ]
 
 export default function Home() {
+  const [trustRef, trustVis] = useReveal()
+  const [servicesRef, servicesVis] = useReveal()
+  const [whyRef, whyVis] = useReveal()
+  const [processRef, processVis] = useReveal()
+  const [testimonialsRef, testVis] = useReveal()
+  const [ctaRef, ctaVis] = useReveal()
+
   return (
     <main className="mt-giant">
+      <style>{`
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .anim-hero { animation: fadeInUp 0.8s ease-out both; }
+        .anim-hero-delay { animation: fadeInUp 0.8s ease-out 0.3s both; }
+        .anim-hero-delay-2 { animation: fadeInUp 0.8s ease-out 0.6s both; }
+        .anim-fade-in { animation: fadeIn 0.6s ease-out both; }
+      `}</style>
+
       {/* Hero Section */}
       <section className="relative pb-xxl md:pb-giant bg-primary overflow-hidden min-h-[700px]">
-        <div className="absolute inset-0 z-0 opacity-40">
+        <div className="absolute inset-0 z-0 opacity-40 anim-fade-in" style={{ animationDuration: '1.5s' }}>
           <img
             className="w-full h-full object-cover"
             src="https://5.imimg.com/data5/SELLER/Default/2021/12/UI/GZ/DT/51665645/finance-oraganisation-office-interior-design-1000x1000.png"
             alt=""
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10 anim-fade-in" style={{ animationDuration: '1s' }}></div>
         <div className="max-w-container-max mx-auto px-lg relative z-20 flex flex-col md:flex-row items-center min-h-[600px] gap-xl">
           <div className="w-full md:w-3/5 text-white pt-xl md:pt-0">
-            <h1 className="text-display-lg-mobile md:text-display-lg mb-md leading-tight">
+            <h1 className="text-display-lg-mobile md:text-display-lg mb-md leading-tight anim-hero">
               Your Trusted Financial Partner for Every Financial Goal
             </h1>
-            <p className="text-body-lg text-on-primary-container max-w-xl mb-xl">
+            <p className="text-body-lg text-on-primary-container max-w-xl mb-xl anim-hero-delay">
               Experience simplified loan processes tailored for individuals and businesses. From dream homes to scaling enterprises, we guide you through every financial milestone with expertise and transparency.
             </p>
-            <div className="flex flex-wrap gap-md">
+            <div className="flex flex-wrap gap-md anim-hero-delay-2">
               <Link to="/apply" className="bg-secondary text-white px-xl py-md rounded-lg font-label-lg hover:bg-secondary/90 transition-colors inline-block">
                 Get Started
               </Link>
@@ -56,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="bg-surface py-xl border-b border-outline-variant/20">
+      <section ref={trustRef} className="bg-surface py-xl border-b border-outline-variant/20" style={revealStyle(trustVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-lg items-center text-center">
             <div className="flex flex-col">
@@ -87,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* Featured Services */}
-      <section className="py-xxl bg-surface-container-low">
+      <section ref={servicesRef} className="py-xxl bg-surface-container-low" style={revealStyle(servicesVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg text-primary mb-sm">Our Loan Solutions</h2>
@@ -111,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-xxl bg-white">
+      <section ref={whyRef} className="py-xxl bg-white" style={revealStyle(whyVis)}>
         <div className="max-w-container-max mx-auto px-lg flex flex-col md:flex-row items-center gap-giant">
           <div className="w-full md:w-1/2">
             <div className="relative">
@@ -151,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Loan Process */}
-      <section className="py-xxl bg-primary text-white">
+      <section ref={processRef} className="py-xxl bg-primary text-white" style={revealStyle(processVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg mb-sm">How It Works</h2>
@@ -178,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-xxl bg-surface overflow-hidden">
+      <section ref={testimonialsRef} className="py-xxl bg-surface overflow-hidden" style={revealStyle(testVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg text-primary mb-sm">Voices of Trust</h2>
@@ -207,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-giant">
+      <section ref={ctaRef} className="py-giant" style={revealStyle(ctaVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="bg-primary-container rounded-2xl p-giant text-center text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>

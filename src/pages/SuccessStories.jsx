@@ -1,3 +1,4 @@
+import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link } from 'react-router-dom'
 
 const reviews = [
@@ -10,6 +11,11 @@ const reviews = [
 ]
 
 export default function SuccessStories() {
+  const [reviewsRef, reviewsVis] = useReveal()
+  const [caseRef, caseVis] = useReveal()
+  const [galleryRef, galleryVis] = useReveal()
+  const [ctaRef, ctaVis] = useReveal()
+
   return (
     <main className="mt-giant">
       <section className="relative py-giant overflow-hidden">
@@ -30,7 +36,7 @@ export default function SuccessStories() {
         </div>
       </section>
 
-      <section className="py-xxl bg-surface-container-low">
+      <section ref={reviewsRef} className="py-xxl bg-surface-container-low" style={revealStyle(reviewsVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="flex justify-between items-end mb-xxl">
             <div>
@@ -68,7 +74,7 @@ export default function SuccessStories() {
         </div>
       </section>
 
-      <section className="py-xxl bg-primary text-on-primary">
+      <section ref={caseRef} className="py-xxl bg-primary text-on-primary" style={revealStyle(caseVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="mb-xxl">
             <h2 className="text-display-lg-mobile md:text-display-lg mb-sm">The path to Grace's success.</h2>
@@ -82,7 +88,7 @@ export default function SuccessStories() {
         </div>
       </section>
 
-      <section className="py-xxl">
+      <section ref={galleryRef} className="py-xxl" style={revealStyle(galleryVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-xxl">
             <h2 className="text-headline-lg text-primary mb-sm">Grace in Motion</h2>
@@ -105,7 +111,7 @@ export default function SuccessStories() {
         </div>
       </section>
 
-      <section className="py-xxl bg-secondary text-on-secondary">
+      <section ref={ctaRef} className="py-xxl bg-secondary text-on-secondary" style={revealStyle(ctaVis)}>
         <div className="max-w-container-max mx-auto px-lg text-center">
           <h2 className="text-display-lg-mobile md:text-display-lg mb-lg">Your Success Story Starts Here</h2>
           <p className="text-body-lg mb-xl max-w-2xl mx-auto opacity-90">Join thousands of satisfied clients who have achieved their financial goals with Grace Financial Consultancy. Our experts are ready to guide you.</p>

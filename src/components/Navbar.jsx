@@ -28,11 +28,10 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-body-md transition-colors ${
-                isActive(link.to)
+              className={`text-body-md transition-colors ${isActive(link.to)
                   ? 'text-secondary border-b-2 border-secondary pb-1'
                   : 'text-on-surface-variant hover:text-primary'
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -43,11 +42,19 @@ export default function Navbar() {
             Apply Now
           </Link>
           <button
-            className="lg:hidden p-sm bg-surface/80 rounded-lg text-on-surface shadow-sm"
+            className="lg:hidden p-sm bg-surface border border-outline-variant/50 rounded-lg text-on-surface shadow-sm"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined">{mobileOpen ? 'close' : 'menu'}</span>
+            {mobileOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -59,11 +66,10 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 onClick={() => setMobileOpen(false)}
-                className={`px-md py-md rounded-lg text-body-md transition-colors ${
-                  isActive(link.to)
+                className={`px-md py-md rounded-lg text-body-md transition-colors ${isActive(link.to)
                     ? 'text-secondary bg-secondary-fixed/50 font-semibold'
                     : 'text-on-surface-variant hover:text-primary'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>

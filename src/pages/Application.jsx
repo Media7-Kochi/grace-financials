@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link, useSearchParams } from 'react-router-dom'
 
 export default function Application() {
@@ -6,6 +7,7 @@ export default function Application() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const loanType = searchParams.get('type') || ''
+  const [formRef, formVis] = useReveal()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,7 +29,7 @@ export default function Application() {
         </div>
       </section>
 
-      <section className="max-w-container-max mx-auto px-lg -mt-xl">
+      <section ref={formRef} className="max-w-container-max mx-auto px-lg -mt-xl" style={revealStyle(formVis)}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl">
           <div className="lg:col-span-8 bg-surface-container-lowest p-xxl rounded-xl shadow-lg border border-outline-variant/30">
             <h2 className="text-headline-md text-primary mb-xl">Loan Application Form</h2>

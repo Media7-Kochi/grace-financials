@@ -1,6 +1,9 @@
+import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link } from 'react-router-dom'
 
 export default function Contact() {
+  const [formRef, formVis] = useReveal()
+  const [mapRef, mapVis] = useReveal()
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = new FormData(e.target)
@@ -24,7 +27,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="max-w-container-max mx-auto px-lg -mt-xl">
+      <section ref={formRef} className="max-w-container-max mx-auto px-lg -mt-xl" style={revealStyle(formVis)}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl">
           <div className="lg:col-span-7 bg-surface-container-lowest p-xxl rounded-xl shadow-lg border border-outline-variant/30">
             <h2 className="text-headline-md text-primary mb-xl">Quick Loan Enquiry</h2>
@@ -70,29 +73,29 @@ export default function Contact() {
                 <div className="bg-primary-container p-sm rounded-lg text-on-primary-container">
                   <span className="material-symbols-outlined">call</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-label-md text-on-surface-variant">Phone</p>
-                  <a href="tel:+9199955333809" className="text-body-lg text-primary hover:underline block">+91 99955 33809</a>
-                  <a href="tel:+9197782292234" className="text-body-md text-on-surface-variant hover:underline block">+91 97782 92234</a>
+                  <a href="tel:+9199955333809" className="text-body-lg text-primary hover:underline block break-words">+91 99955 33809</a>
+                  <a href="tel:+9197782292234" className="text-body-md text-on-surface-variant hover:underline block break-words">+91 97782 92234</a>
                 </div>
               </div>
               <div className="flex gap-lg items-start">
                 <div className="bg-primary-container p-sm rounded-lg text-on-primary-container">
                   <span className="material-symbols-outlined">mail</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-label-md text-on-surface-variant">Email</p>
-                  <p className="text-body-xl text-primary">info.gracefinancialconsultancy@gmail.com</p>
-                  <p className="text-body-md text-on-surface-variant">anvikochi@gmail.com</p>
+                  <p className="text-body-xl text-primary break-words">info.gracefinancialconsultancy@gmail.com</p>
+                  <p className="text-body-md text-on-surface-variant break-words">anvikochi@gmail.com</p>
                 </div>
               </div>
               <div className="flex gap-lg items-start">
                 <div className="bg-primary-container p-sm rounded-lg text-on-primary-container">
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-label-md text-on-surface-variant">Office Address</p>
-                  <p className="text-body-lg text-primary">3rd floor, National Pearl Star Building National Builders, 3D, behind Changampuzha Metro Station, Edappally, Kochi, Kerala 682024</p>
+                  <p className="text-body-lg text-primary break-words">3rd floor, National Pearl Star Building National Builders, 3D, behind Changampuzha Metro Station, Edappally, Kochi, Kerala 682024</p>
                 </div>
               </div>
             </div>
@@ -114,18 +117,18 @@ export default function Contact() {
               </div>
             </div>
 
-            <Link to="https://wa.me/919995533809" className="bg-[#25D366] text-white p-lg rounded-xl flex items-center justify-between text-headline-sm hover:shadow-xl transition-all group">
+            <a href="https://wa.me/919995533809" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white p-lg rounded-xl flex items-center justify-between text-headline-sm hover:shadow-xl transition-all group">
               <div className="flex items-center gap-md">
                 <span className="material-symbols-outlined text-[32px]">chat</span>
                 <span>WhatsApp Us</span>
               </div>
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
 
-      <a href="https://www.google.com/maps/place/Media7/@10.0146413,76.3015766,249m/data=!3m1!1e3!4m6!3m5!1s0x3b080da588e92727:0xfb57d7fdb58a3559!8m2!3d10.014936!4d76.3018219!16s%2Fg%2F11mcyq76md?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-giant w-full h-[500px] bg-surface-container relative overflow-hidden block">
+      <a ref={mapRef} href="https://www.google.com/maps/place/Media7/@10.0146413,76.3015766,249m/data=!3m1!1e3!4m6!3m5!1s0x3b080da588e92727:0xfb57d7fdb58a3559!8m2!3d10.014936!4d76.3018219!16s%2Fg%2F11mcyq76md?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="mt-giant w-full h-[500px] bg-surface-container relative overflow-hidden block" style={revealStyle(mapVis)}>
         <div className="absolute inset-0 grayscale opacity-80 hover:grayscale-0 transition-all duration-700">
           <img className="w-full h-full object-cover" alt=""
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuACrep7j_SvwojIBudv3U_ygD7-0sqQytHyeFCZUotZvKf8oE1zMLP_39HRPniVWwKiOg5llHyNPoBh0Iij1Mm0wwiVF20hFRdpYKQsOWYcr6bJ-_VEC0qD9MONviEK6LhvyfdgDjAe6Q0v5CweOmmjl5J1ahsaKLcC5xSS2ujS-G-BAdEzb3esQn6lnvZ0sp30EdDGUvD1RiEvI53rqZhvznsF0RrgILiHT8orLDh6wao2rV_mQKrlLw" />

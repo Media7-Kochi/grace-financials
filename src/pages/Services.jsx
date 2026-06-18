@@ -1,6 +1,10 @@
+import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link } from 'react-router-dom'
 
 export default function Services() {
+  const [gridRef, gridVis] = useReveal()
+  const [ctaRef, ctaVis] = useReveal()
+
   return (
     <main className="mt-giant">
       {/* Hero Section */}
@@ -33,7 +37,7 @@ export default function Services() {
       </header>
 
       {/* Services Grid - Bento Style */}
-      <div className="max-w-container-max mx-auto px-lg py-xxl">
+      <div ref={gridRef} className="max-w-container-max mx-auto px-lg py-xxl" style={revealStyle(gridVis)}>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-lg">
 
           {/* Vehicle Loan */}
@@ -248,7 +252,7 @@ export default function Services() {
       </div>
 
       {/* Global CTA */}
-      <section className="bg-primary-container py-xxl">
+      <section ref={ctaRef} className="bg-primary-container py-xxl" style={revealStyle(ctaVis)}>
         <div className="max-w-container-max mx-auto px-lg text-center">
           <h2 className="text-headline-lg text-white mb-lg">Don't See What You Need?</h2>
           <p className="text-body-lg text-on-primary-container max-w-xl mx-auto mb-xl">Our financial consultants are ready to create a bespoke solution for your unique requirements.</p>

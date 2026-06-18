@@ -1,4 +1,13 @@
+import { useReveal, revealStyle } from '../hooks/useReveal'
+
 export default function About() {
+  const [missionRef, missionVis] = useReveal()
+  const [valuesRef, valuesVis] = useReveal()
+  const [statsRef, statsVis] = useReveal()
+  const [whyRef, whyVis] = useReveal()
+  const [teamRef, teamVis] = useReveal()
+  const [galleryRef, galleryVis] = useReveal()
+
   return (
     <main className="mt-giant">
       {/* Hero Section: Company Story */}
@@ -33,7 +42,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Cards */}
-      <section className="py-giant bg-surface-container-low">
+      <section ref={missionRef} className="py-giant bg-surface-container-low" style={revealStyle(missionVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
             <div className="bg-surface-container-lowest p-xxl rounded-xl border border-outline-variant/30 flex flex-col items-center text-center custom-shadow">
@@ -59,7 +68,7 @@ export default function About() {
       </section>
 
       {/* Core Values Grid */}
-      <section className="py-giant bg-surface">
+      <section ref={valuesRef} className="py-giant bg-surface" style={revealStyle(valuesVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg text-primary mb-sm">Our Core Values</h2>
@@ -85,7 +94,7 @@ export default function About() {
       </section>
 
       {/* Company Statistics */}
-      <section className="py-giant bg-primary text-on-primary">
+      <section ref={statsRef} className="py-giant bg-primary text-on-primary" style={revealStyle(statsVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-xl text-center">
             {[
@@ -104,7 +113,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Grace */}
-      <section className="py-giant bg-surface">
+      <section ref={whyRef} className="py-giant bg-surface" style={revealStyle(whyVis)}>
         <div className="max-w-container-max mx-auto px-lg grid grid-cols-1 md:grid-cols-2 gap-xxl items-center">
           <div className="relative aspect-[5/6]">
             <div className="absolute inset-0 bg-secondary/5 rounded-full scale-110 animate-pulse"></div>
@@ -138,7 +147,7 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-giant bg-surface-container-low">
+      <section ref={teamRef} className="py-giant bg-surface-container-low" style={revealStyle(teamVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg text-primary mb-sm">Leadership Team</h2>
@@ -167,7 +176,7 @@ export default function About() {
       </section>
 
       {/* Office Gallery */}
-      <section className="py-giant bg-surface">
+      <section ref={galleryRef} className="py-giant bg-surface" style={revealStyle(galleryVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <div className="text-center mb-giant">
             <h2 className="text-headline-lg text-primary mb-sm">Our Environment</h2>

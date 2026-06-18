@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useReveal, revealStyle } from '../hooks/useReveal'
 
 const categories = ['All Insights', 'Home Loan Tips', 'Vehicle Finance', 'Loan Guides', 'Business Growth', 'Credit Scoring']
 
@@ -16,6 +17,9 @@ const PER_PAGE = 3
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All Insights')
   const [visibleCount, setVisibleCount] = useState(PER_PAGE)
+  const [featuredRef, featuredVis] = useReveal()
+  const [latestRef, latestVis] = useReveal()
+  const [newsRef, newsVis] = useReveal()
 
   const filtered = activeCategory === 'All Insights' ? posts : posts.filter(p => p.category === activeCategory)
   const visiblePosts = filtered.slice(0, visibleCount)
@@ -53,7 +57,7 @@ export default function Blog() {
       </section>
 
       {activeCategory === 'All Insights' && (
-        <section className="py-xxl">
+        <section ref={featuredRef} className="py-xxl" style={revealStyle(featuredVis)}>
           <div className="max-w-container-max mx-auto px-lg">
             <div className="group relative flex flex-col md:flex-row bg-white rounded-xl overflow-hidden custom-shadow transition-all duration-500 cursor-pointer">
               <div className="md:w-3/5 h-[300px] md:h-[500px] relative overflow-hidden">
@@ -80,7 +84,7 @@ export default function Blog() {
         </section>
       )}
 
-      <section className={activeCategory === 'All Insights' ? 'pb-giant' : 'py-xxl'}>
+      <section ref={latestRef} className={activeCategory === 'All Insights' ? 'pb-giant' : 'py-xxl'} style={revealStyle(latestVis)}>
         <div className="max-w-container-max mx-auto px-lg">
           <h3 className="text-headline-md text-primary mb-xl">Latest Articles</h3>
           {filtered.length === 0 ? (
@@ -120,7 +124,7 @@ export default function Blog() {
         </div>
       </section>
 
-      <section className="bg-primary py-giant overflow-hidden relative">
+      <section ref={newsRef} className="bg-primary py-giant overflow-hidden relative" style={revealStyle(newsVis)}>
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[40px] border-secondary-container"></div>
           <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full border-[30px] border-secondary"></div>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link } from 'react-router-dom'
 
 export default function Eligibility() {
@@ -8,6 +9,8 @@ export default function Eligibility() {
   const [existingEmis, setExistingEmis] = useState(0)
   const [cibil, setCibil] = useState(750)
   const [showResult, setShowResult] = useState(false)
+  const [resultsRef, resultsVis] = useReveal()
+  const [formRef, formVis] = useReveal()
 
   const totalSteps = 4
 
@@ -46,7 +49,7 @@ export default function Eligibility() {
             <h1 className="text-display-lg-mobile md:text-display-lg text-on-primary mb-md">Your Eligibility Results</h1>
           </div>
         </section>
-        <section className="section-padding">
+        <section ref={resultsRef} className="section-padding" style={revealStyle(resultsVis)}>
           <div className="max-w-container-max mx-auto px-lg max-w-2xl">
             <div className="card p-xl text-center mb-xl">
               <p className="text-label-lg text-on-surface-variant mb-xs">Estimated Loan Eligibility</p>
@@ -90,7 +93,7 @@ export default function Eligibility() {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={formRef} className="section-padding" style={revealStyle(formVis)}>
         <div className="max-w-container-max mx-auto px-lg max-w-2xl">
           <div className="flex items-center justify-center gap-sm mb-xl">
             {Array.from({ length: totalSteps }, (_, i) => i + 1).map((s) => (
