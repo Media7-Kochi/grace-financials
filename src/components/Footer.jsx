@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 const GraceLogo = () => (
   <Link to="/" className="flex items-center gap-sm group shrink-0">
     <img
-      src="/grace_logo.jpg"
+      src="/grace_href.png"
       alt="Grace Financial"
       className="h-24 w-auto object-contain"
     />
