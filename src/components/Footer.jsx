@@ -51,7 +51,10 @@ export default function Footer() {
           <h5 className="text-white font-label-lg mb-lg">Contact Info</h5>
           <ul className="space-y-sm">
             <li className="flex items-center gap-sm text-on-primary-container text-body-sm">
-              <span className="material-symbols-outlined text-body-sm">call</span> +91 99955 33809
+              <span className="material-symbols-outlined text-body-sm">call</span> +91 99955 33938
+            </li>
+            <li className="flex items-center gap-sm text-on-primary-container text-body-sm">
+              <span className="material-symbols-outlined text-body-sm">call</span> +91 99955 33578
             </li>
             <li className="flex items-center gap-sm text-on-primary-container text-body-sm">
               <span className="material-symbols-outlined text-body-sm">mail</span> info.gracefinancialconsultancy@gmail.com

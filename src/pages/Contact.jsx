@@ -15,7 +15,7 @@ export default function Contact() {
 
     const text = `Hi Grace Financial,%0A%0A${encodeURIComponent('I would like to enquire about a loan.')}%0A%0A${encodeURIComponent(`Name: ${name}`)}%0A${encodeURIComponent(`Phone: ${phone}`)}%0A${encodeURIComponent(`Email: ${email}`)}%0A${encodeURIComponent(`Loan Type: ${loanType}`)}%0A${encodeURIComponent(`Message: ${message}`)}`
 
-    window.open(`https://wa.me/919995533809?text=${text}`, '_blank')
+    window.open(`https://wa.me/919995533938?text=${text}`, '_blank')
   }
 
   return (
