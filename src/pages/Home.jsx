@@ -4,13 +4,11 @@ import { useReveal, revealStyle } from '../hooks/useReveal'
 const testimonials = [
   {
     name: 'Arya',
-    role: 'Grace Financials',
     quote: '"Grace Financial made my home buying process incredibly smooth. Their team managed everything from documentation to follow-ups with the bank. Highly recommended!"',
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCpfLMMyKMSuZ7-6rBW1jStfssy2yBT0l4nYnTR6MhGuSXVeKcA_LqP7fTGt99RCY_wYQ_ximMHyE9qL3abHs9VY7Z9pz-gQruVMHNcZBjNnRd3xzqJqJNiFXPQWn-sQq0qpWc-rUeEfGMmqtG59QOj1Z63Z1DWKWapjZRMYxm9uDvOFDls3gFA2QBncpDuIeNrlPHOgzXjgypPbxSniNU3petuH3-wN_rNWDVgCR6wNE-M2lWcnSvmUA',
   },
   {
     name: 'Sunitha',
-    role: 'Grace Financials',
     quote: '"The business loan helped our startup scale at the right time. The interest rates they secured were significantly lower than what I was finding on my own."',
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCpfLMMyKMSuZ7-6rBW1jStfssy2yBT0l4nYnTR6MhGuSXVeKcA_LqP7fTGt99RCY_wYQ_ximMHyE9qL3abHs9VY7Z9pz-gQruVMHNcZBjNnRd3xzqJqJNiFXPQWn-sQq0qpWc-rUeEfGMmqtG59QOj1Z63Z1DWKWapjZRMYxm9uDvOFDls3gFA2QBncpDuIeNrlPHOgzXjgypPbxSniNU3petuH3-wN_rNWDVgCR6wNE-M2lWcnSvmUA',
   },
