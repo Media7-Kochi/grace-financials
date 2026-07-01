@@ -6,41 +6,57 @@ export default function Application() {
   const [searchParams] = useSearchParams()
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [showOverlay, setShowOverlay] = useState(true)
+  const [error, setError] = useState(null)
   const loanType = searchParams.get('type') || ''
   const [formRef, formVis] = useReveal()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setSubmitting(true)
-    setTimeout(() => {
-      setSubmitting(false)
+    setError(null)
+
+    const form = e.target
+    const data = {
+      fullName: form.fullName.value,
+      dateOfBirth: form.dateOfBirth.value,
+      phone: form.phone.value,
+      email: form.email.value,
+      loanType: form.loanType.value,
+      loanAmount: form.loanAmount.value,
+      employmentType: form.employmentType.value,
+      monthlyIncome: form.monthlyIncome.value,
+      address: form.address.value,
+      notes: form.notes.value,
+    }
+
+    try {
+      const res = await fetch('/api/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      const result = await res.json()
+
+      if (!res.ok) {
+        throw new Error(result.errors
+          ? Object.values(result.errors).join(', ')
+          : result.message || 'Submission failed'
+        )
+      }
+
       setSubmitted(true)
-      e.target.reset()
-      setTimeout(() => setSubmitted(false), 3000)
-    }, 1500)
+      form.reset()
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
     <main className="mt-giant relative">
-      {showOverlay && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/30 px-md">
-          <div className="relative bg-black/70 backdrop-blur-xl border border-white/10 p-xxl rounded-2xl shadow-2xl max-w-md w-full text-center space-y-xl">
-            <div className="space-y-lg mt-lg">
-              <p className="text-body-lg text-white/80 leading-relaxed">
-                Application Form is currently on working so please contact we on through whatsapp
-              </p>
-              <a href="https://wa.me/919995533809" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-md bg-[#25D366] text-white px-xl py-md rounded-xl text-headline-sm font-semibold hover:shadow-lg hover:brightness-110 transition-all w-full">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                Click to Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
       <style>{`
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         .anim-hero { animation: fadeInUp 0.8s ease-out both; }
@@ -60,23 +76,23 @@ export default function Application() {
             <form className="grid grid-cols-1 md:grid-cols-2 gap-lg" onSubmit={handleSubmit}>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Full Name *</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your full name" type="text" required />
+                <input name="fullName" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your full name" type="text" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Date of Birth</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" type="date" />
+                <input name="dateOfBirth" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" type="date" />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Phone Number *</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your phone number" type="tel" required />
+                <input name="phone" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your phone number" type="tel" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Email Address *</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your email address" type="email" required />
+                <input name="email" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your email address" type="email" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Loan Type *</label>
-                <select className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" defaultValue={loanType} required>
+                <select name="loanType" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" defaultValue={loanType} required>
                   <option value="">Select loan type</option>
                   <option>Home Loan</option>
                   <option>Vehicle Loan</option>
@@ -90,11 +106,11 @@ export default function Application() {
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Loan Amount (₹) *</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Enter amount" type="number" required />
+                <input name="loanAmount" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Enter amount" type="number" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Employment Type</label>
-                <select className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md">
+                <select name="employmentType" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md">
                   <option value="">Select employment type</option>
                   <option>Salaried</option>
                   <option>Self-Employed</option>
@@ -105,16 +121,21 @@ export default function Application() {
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Monthly Income (₹)</label>
-                <input className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your monthly income" type="number" />
+                <input name="monthlyIncome" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your monthly income" type="number" />
               </div>
               <div className="md:col-span-2 space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Current Address</label>
-                <textarea className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your full address" rows="2"></textarea>
+                <textarea name="address" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your full address" rows="2"></textarea>
               </div>
               <div className="md:col-span-2 space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Additional Notes</label>
-                <textarea className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Any specific requirements or details..." rows="3"></textarea>
+                <textarea name="notes" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Any specific requirements or details..." rows="3"></textarea>
               </div>
+              {error && (
+                <div className="md:col-span-2 bg-red-50 border border-red-200 text-red-700 p-md rounded-lg text-body-md">
+                  {error}
+                </div>
+              )}
               <div className="md:col-span-2 mt-md">
                 <button type="submit" disabled={submitting}
                   className={`w-full py-md rounded-lg text-headline-sm transition-all flex justify-center items-center gap-sm ${
