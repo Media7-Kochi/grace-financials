@@ -1,0 +1,185 @@
+
+> grace_financials@0.0.0 lint
+> eslint .
+
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/server/controllers/applicationController.js
+  62:11  error  'process' is not defined  no-undef
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/server/controllers/galleryController.js
+   14:28  error  'process' is not defined                                        no-undef
+  178:5   error  There is no `cause` attached to the symptom error being thrown  preserve-caught-error
+  218:14  error  'error' is defined but never used                               no-unused-vars
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/server/index.js
+  15:14  error  'process' is not defined  no-undef
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/server/services/emailService.js
+   6:18  error  'process' is not defined  no-undef
+  12:8   error  'process' is not defined  no-undef
+  21:16  error  'process' is not defined  no-undef
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/src/App.jsx
+  35:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  33 |
+  34 |   useEffect(() => {
+> 35 |     setLoading(true)
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  36 |     clearTimeout(timerRef.current)
+  37 |     timerRef.current = setTimeout(() => setLoading(false), 2000)
+  38 |     return () => clearTimeout(timerRef.current)  react-hooks/set-state-in-effect
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/src/hooks/useReveal.js
+  15:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  13 |     const rect = node.getBoundingClientRect()
+  14 |     if (rect.top < window.innerHeight) {
+> 15 |       setRevealed(true)
+     |       ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  16 |       return
+  17 |     }
+  18 |  react-hooks/set-state-in-effect
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/src/pages/Contact.jsx
+  2:10  error  'Link' is defined but never used  no-unused-vars
+
+/Users/binilb/Documents/completed  🫠/Grace_Financials/src/pages/Gallery.jsx
+    1:31  error    'useRef' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         no-unused-vars
+   60:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  58 |   useEffect(() => {
+  59 |     if (searchParams.get('admin') === 'true') {
+> 60 |       setIsAdminMode(true)
+     |       ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  61 |       const cachedPassword = localStorage.getItem('grace_admin_password')
+  62 |       if (cachedPassword) {
+  63 |         setAdminPassword(cachedPassword)  react-hooks/set-state-in-effect
+   64:9   error    Error: Cannot access variable before it is declared
+
+`verifyPassword` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  62 |       if (cachedPassword) {
+  63 |         setAdminPassword(cachedPassword)
+> 64 |         verifyPassword(cachedPassword)
+     |         ^^^^^^^^^^^^^^ `verifyPassword` accessed before it is declared
+  65 |       }
+  66 |     }
+  67 |   }, [searchParams])
+
+  127 |
+  128 |   // Password verification
+> 129 |   const verifyPassword = async (passwordToVerify) => {
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 130 |     const pwd = passwordToVerify || adminPassword
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 131 |     try {
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 151 |     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 152 |   }
+      | ^^^^ `verifyPassword` is declared here
+  153 |
+  154 |   const handleAdminLoginSubmit = async (e) => {
+  155 |     e.preventDefault()    react-hooks/immutability
+   67:6   warning  React Hook useEffect has a missing dependency: 'verifyPassword'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+   71:5   error    Error: Cannot access variable before it is declared
+
+`fetchSettings` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  69 |   // Fetch Settings & Posts
+  70 |   useEffect(() => {
+> 71 |     fetchSettings()
+     |     ^^^^^^^^^^^^^ `fetchSettings` accessed before it is declared
+  72 |   }, [])
+  73 |
+  74 |   useEffect(() => {
+
+  77 |   }, [category, searchQuery])
+  78 |
+> 79 |   const fetchSettings = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 80 |     try {
+     | ^^^^^^^^^
+> 81 |       const res = await fetch('/api/gallery/settings')
+     …
+     | ^^^^^^^^^
+> 88 |     }
+     | ^^^^^^^^^
+> 89 |   }
+     | ^^^^ `fetchSettings` is declared here
+  90 |
+  91 |   const fetchPosts = async (currentPage = 0, isNewFilter = false) => {
+  92 |     try {                                                                                                                                                                                                                  react-hooks/immutability
+   75:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  73 |
+  74 |   useEffect(() => {
+> 75 |     setPage(0)
+     |     ^^^^^^^ Avoid calling setState() directly within an effect
+  76 |     fetchPosts(0, true)
+  77 |   }, [category, searchQuery])
+  78 |                                                                                                                                                                react-hooks/set-state-in-effect
+   76:5   error    Error: Cannot access variable before it is declared
+
+`fetchPosts` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  74 |   useEffect(() => {
+  75 |     setPage(0)
+> 76 |     fetchPosts(0, true)
+     |     ^^^^^^^^^^ `fetchPosts` accessed before it is declared
+  77 |   }, [category, searchQuery])
+  78 |
+  79 |   const fetchSettings = async () => {
+
+   89 |   }
+   90 |
+>  91 |   const fetchPosts = async (currentPage = 0, isNewFilter = false) => {
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  92 |     try {
+      | ^^^^^^^^^
+>  93 |       if (isNewFilter) setLoading(true)
+      …
+      | ^^^^^^^^^
+> 119 |     }
+      | ^^^^^^^^^
+> 120 |   }
+      | ^^^^ `fetchPosts` is declared here
+  121 |
+  122 |   const loadMore = () => {
+  123 |     const nextPage = page + 1                                                                                                                                                                               react-hooks/immutability
+   77:6   warning  React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+  195:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  240:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  272:16  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  308:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  333:14  error    'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  387:6   warning  React Hook useEffect has a missing dependency: 'handleKeyDown'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+✖ 25 problems (22 errors, 3 warnings)
+

@@ -1,5 +1,4 @@
 import { useReveal, revealStyle } from '../hooks/useReveal'
-import { Link } from 'react-router-dom'
 
 export default function Contact() {
   const [formRef, formVis] = useReveal()

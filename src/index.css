@@ -50,4 +50,5 @@
   }
   @media (min-width: 768px) { .masonry-grid { columns: 2; } }
   @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+  @media (min-width: 1440px) { .masonry-grid { columns: 4; } }
 }

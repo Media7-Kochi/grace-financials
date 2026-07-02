@@ -11,6 +11,7 @@ import EmiCalculator from './pages/EmiCalculator'
 import Eligibility from './pages/Eligibility'
 import SuccessStories from './pages/SuccessStories'
 import Blog from './pages/Blog'
+import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Application from './pages/Application'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -31,11 +32,12 @@ function App() {
   const timerRef = useRef(null)
 
   useEffect(() => {
-    setLoading(true)
+    requestAnimationFrame(() => setLoading(true))
     clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => setLoading(false), 2000)
     return () => clearTimeout(timerRef.current)
   }, [pathname])
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -51,7 +53,9 @@ function App() {
               <Route path="/emi-calculator" element={<EmiCalculator />} />
               <Route path="/eligibility" element={<Eligibility />} />
               <Route path="/success-stories" element={<SuccessStories />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/blog" element={<Blog />} />
+
               <Route path="/contact" element={<Contact />} />
               <Route path="/apply" element={<Application />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -12,9 +12,10 @@ export function useReveal() {
     if (!node) return
     const rect = node.getBoundingClientRect()
     if (rect.top < window.innerHeight) {
-      setRevealed(true)
+      requestAnimationFrame(() => setRevealed(true))
       return
     }
+
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setRevealed(true); observer.unobserve(node) }

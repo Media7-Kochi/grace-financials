@@ -13,8 +13,10 @@ export default function Navbar() {
     { to: '/emi-calculator', label: 'EMI Calculator' },
     { to: '/eligibility', label: 'Eligibility' },
     { to: '/success-stories', label: 'Success Stories' },
+    { to: '/gallery', label: 'Gallery' },
     { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact' },
+
   ]
 
   const isActive = (path) => location.pathname === path

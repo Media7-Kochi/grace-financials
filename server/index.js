@@ -16,7 +16,11 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Serve uploaded images statically
+app.use('/uploads', express.static(path.join(__dirname, '..', 'public', 'uploads')));
+
 app.use('/api/applications', applicationRoutes);
+
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });

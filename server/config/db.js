@@ -31,6 +31,29 @@ db.exec(`
   )
 `);
 
+db.exec(`
+  CREATE TABLE IF NOT EXISTS gallery_settings (
+    key TEXT PRIMARY KEY,
+    value TEXT
+  )
+`);
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS gallery_posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    instagram_url TEXT UNIQUE,
+    image_url TEXT NOT NULL,
+    caption TEXT,
+    posted_at TEXT DEFAULT (datetime('now')),
+    media_type TEXT DEFAULT 'IMAGE',
+    category TEXT DEFAULT 'Moment',
+    likes_count INTEGER DEFAULT 0,
+    comments_count INTEGER DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now'))
+  )
+`);
+
+
 export function initializeDatabase() {
   // Called explicitly in index.js for clarity
   return db;
