@@ -15,7 +15,7 @@ function formatApplication(data, id) {
     employmentType: data.employmentType || null,
     monthlyIncome: data.monthlyIncome || null,
     cibilScore: data.cibilScore || null,
-    originalSalarySlip: data.originalSalarySlip || null,
+    bankTransfer: data.bankTransfer || null,
     address: data.address || null,
     notes: data.notes || null,
   };
@@ -33,7 +33,7 @@ export async function submitApplication(req, res) {
 
   try {
     const stmt = db.prepare(`
-      INSERT INTO applications (full_name, date_of_birth, phone, email, loan_type, loan_amount, employment_type, monthly_income, cibil_score, original_salary_slip, address, notes)
+      INSERT INTO applications (full_name, date_of_birth, phone, email, loan_type, loan_amount, employment_type, monthly_income, cibil_score, bank_transfer, address, notes)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
@@ -47,7 +47,7 @@ export async function submitApplication(req, res) {
       data.employmentType || null,
       data.monthlyIncome || null,
       data.cibilScore || null,
-      data.originalSalarySlip || null,
+      data.bankTransfer || null,
       data.address || null,
       data.notes || null,
     );

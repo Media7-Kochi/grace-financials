@@ -26,7 +26,7 @@ db.exec(`
     employment_type TEXT,
     monthly_income TEXT,
     cibil_score TEXT,
-    original_salary_slip TEXT,
+    bank_transfer TEXT,
     address TEXT,
     notes TEXT,
     created_at TEXT DEFAULT (datetime('now'))
@@ -34,7 +34,7 @@ db.exec(`
 `);
 
 try { db.exec(`ALTER TABLE applications ADD COLUMN cibil_score TEXT`) } catch {}
-try { db.exec(`ALTER TABLE applications ADD COLUMN original_salary_slip TEXT`) } catch {}
+try { db.exec(`ALTER TABLE applications ADD COLUMN bank_transfer TEXT`) } catch {}
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS gallery_settings (

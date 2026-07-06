@@ -34,7 +34,7 @@ export default function Application() {
       employmentType: form.employmentType.value,
       monthlyIncome: form.monthlyIncome.value,
       cibilScore: form.cibilScore.value,
-      originalSalarySlip: form.querySelector('input[name="originalSalarySlip"]:checked')?.value || '',
+      bankTransfer: form.querySelector('input[name="bankTransfer"]:checked')?.value || '',
       address: form.address.value,
       notes: form.notes.value,
     }
@@ -165,14 +165,14 @@ export default function Application() {
                 <input name="cibilScore" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Enter your CIBIL score (e.g., 750)" type="number" min="300" max="900" />
               </div>
               <div className="md:col-span-2 space-y-xs">
-                <label className="text-label-md text-on-surface-variant">Do you have an original salary slip? *</label>
+                <label className="text-label-md text-on-surface-variant">Is your salary transferred through bank? *</label>
                 <div className="flex gap-md">
                   <label className="flex-1 cursor-pointer">
-                    <input type="radio" name="originalSalarySlip" value="Yes" className="peer sr-only" required />
+                    <input type="radio" name="bankTransfer" value="Yes" className="peer sr-only" required />
                     <div className="w-full text-center p-md rounded-lg border border-outline-variant text-body-md peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-primary transition-all">Yes</div>
                   </label>
                   <label className="flex-1 cursor-pointer">
-                    <input type="radio" name="originalSalarySlip" value="No" className="peer sr-only" required />
+                    <input type="radio" name="bankTransfer" value="No" className="peer sr-only" required />
                     <div className="w-full text-center p-md rounded-lg border border-outline-variant text-body-md peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-primary transition-all">No</div>
                   </label>
                 </div>

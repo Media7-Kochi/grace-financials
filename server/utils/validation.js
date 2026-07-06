@@ -45,8 +45,8 @@ export function validateApplication(data) {
     errors.cibilScore = 'CIBIL score must be between 300 and 900';
   }
 
-  if (!data.originalSalarySlip?.trim()) {
-    errors.originalSalarySlip = 'Please select whether you have an original salary slip';
+  if (!data.bankTransfer?.trim()) {
+    errors.bankTransfer = 'Please select whether your salary is transferred through bank';
   }
 
   return {

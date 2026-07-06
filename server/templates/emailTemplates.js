@@ -36,7 +36,7 @@ export function adminEmailTemplate(data) {
                   ['Employment Type', data.employmentType || '—'],
                   ['Monthly Income', data.monthlyIncome ? '₹' + Number(data.monthlyIncome).toLocaleString('en-IN') : '—'],
                   ['CIBIL Score', data.cibilScore || '—'],
-                  ['Original Salary Slip', data.originalSalarySlip || '—'],
+                  ['Salary through Bank Transfer', data.bankTransfer || '—'],
                   ['Address', data.address || '—'],
                   ['Additional Notes', data.notes || '—'],
                 ].map(([label, value]) => `
