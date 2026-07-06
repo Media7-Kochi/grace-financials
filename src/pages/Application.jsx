@@ -2,11 +2,19 @@ import { useState } from 'react'
 import { useReveal, revealStyle } from '../hooks/useReveal'
 import { Link, useSearchParams } from 'react-router-dom'
 
+const countryDigits = {
+  '+1': 10, '+44': 11, '+61': 10, '+81': 11, '+86': 11, '+91': 10,
+  '+92': 10, '+93': 9, '+94': 10, '+95': 10, '+971': 9, '+974': 8,
+  '+966': 9, '+65': 8, '+60': 10, '+62': 11, '+63': 10, '+66': 9,
+  '+49': 11, '+33': 9, '+39': 10, '+7': 10, '+55': 11,
+}
+
 export default function Application() {
   const [searchParams] = useSearchParams()
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(null)
+  const [countryCode, setCountryCode] = useState('+91')
   const loanType = searchParams.get('type') || ''
   const [formRef, formVis] = useReveal()
 
@@ -19,12 +27,14 @@ export default function Application() {
     const data = {
       fullName: form.fullName.value,
       dateOfBirth: form.dateOfBirth.value,
-      phone: form.phone.value,
+      phone: form.countryCode.value + form.phone.value,
       email: form.email.value,
       loanType: form.loanType.value,
       loanAmount: form.loanAmount.value,
       employmentType: form.employmentType.value,
       monthlyIncome: form.monthlyIncome.value,
+      cibilScore: form.cibilScore.value,
+      originalSalarySlip: form.querySelector('input[name="originalSalarySlip"]:checked')?.value || '',
       address: form.address.value,
       notes: form.notes.value,
     }
@@ -84,11 +94,38 @@ export default function Application() {
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Phone Number *</label>
-                <input name="phone" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your phone number" type="tel" required />
+                <div className="flex gap-sm">
+                  <select name="countryCode" className="bg-surface p-md rounded-lg border border-outline-variant text-body-md w-[110px] flex-shrink-0" value={countryCode} onChange={e => setCountryCode(e.target.value)}>
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+61">+61 (AU)</option>
+                    <option value="+81">+81 (JP)</option>
+                    <option value="+86">+86 (CN)</option>
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+92">+92 (PK)</option>
+                    <option value="+93">+93 (AF)</option>
+                    <option value="+94">+94 (LK)</option>
+                    <option value="+95">+95 (MM)</option>
+                    <option value="+971">+971 (AE)</option>
+                    <option value="+974">+974 (QA)</option>
+                    <option value="+966">+966 (SA)</option>
+                    <option value="+65">+65 (SG)</option>
+                    <option value="+60">+60 (MY)</option>
+                    <option value="+62">+62 (ID)</option>
+                    <option value="+63">+63 (PH)</option>
+                    <option value="+66">+66 (TH)</option>
+                    <option value="+49">+49 (DE)</option>
+                    <option value="+33">+33 (FR)</option>
+                    <option value="+39">+39 (IT)</option>
+                    <option value="+7">+7 (RU)</option>
+                    <option value="+55">+55 (BR)</option>
+                  </select>
+                  <input name="phone" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your phone number" type="tel" minLength={countryDigits[countryCode]} maxLength={countryDigits[countryCode]} pattern="[0-9]*" required />
+                </div>
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Email Address *</label>
-                <input name="email" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your email address" type="email" required />
+                <input name="email" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your email address" type="email" pattern="[a-zA-Z0-9._%+\-]+@gmail\.com" title="Must be a @gmail.com address" required />
               </div>
               <div className="space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Loan Type *</label>
@@ -123,6 +160,23 @@ export default function Application() {
                 <label className="text-label-md text-on-surface-variant">Monthly Income (₹)</label>
                 <input name="monthlyIncome" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your monthly income" type="number" />
               </div>
+              <div className="space-y-xs">
+                <label className="text-label-md text-on-surface-variant">CIBIL Score</label>
+                <input name="cibilScore" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Enter your CIBIL score (e.g., 750)" type="number" min="300" max="900" />
+              </div>
+              <div className="md:col-span-2 space-y-xs">
+                <label className="text-label-md text-on-surface-variant">Do you have an original salary slip? *</label>
+                <div className="flex gap-md">
+                  <label className="flex-1 cursor-pointer">
+                    <input type="radio" name="originalSalarySlip" value="Yes" className="peer sr-only" required />
+                    <div className="w-full text-center p-md rounded-lg border border-outline-variant text-body-md peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-primary transition-all">Yes</div>
+                  </label>
+                  <label className="flex-1 cursor-pointer">
+                    <input type="radio" name="originalSalarySlip" value="No" className="peer sr-only" required />
+                    <div className="w-full text-center p-md rounded-lg border border-outline-variant text-body-md peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-primary transition-all">No</div>
+                  </label>
+                </div>
+              </div>
               <div className="md:col-span-2 space-y-xs">
                 <label className="text-label-md text-on-surface-variant">Current Address</label>
                 <textarea name="address" className="w-full bg-surface p-md rounded-lg border border-outline-variant text-body-md" placeholder="Your full address" rows="2"></textarea>
@@ -138,16 +192,8 @@ export default function Application() {
               )}
               <div className="md:col-span-2 mt-md">
                 <button type="submit" disabled={submitting}
-                  className={`w-full py-md rounded-lg text-headline-sm transition-all flex justify-center items-center gap-sm ${
-                    submitted ? 'bg-emerald-600 text-white' : 'bg-primary text-on-primary hover:opacity-90'
-                  }`}>
-                  {submitting ? (
-                    <><span className="material-symbols-outlined animate-spin">refresh</span> Submitting...</>
-                  ) : submitted ? (
-                    <><span className="material-symbols-outlined">check_circle</span> Application Submitted Successfully</>
-                  ) : (
-                    <>Submit Application <span className="material-symbols-outlined">send</span></>
-                  )}
+                  className="w-full py-md rounded-lg text-headline-sm transition-all flex justify-center items-center gap-sm bg-primary text-on-primary hover:opacity-90">
+                  Submit Application <span className="material-symbols-outlined">send</span>
                 </button>
               </div>
             </form>
