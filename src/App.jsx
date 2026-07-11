@@ -56,7 +56,7 @@ function App() {
       <ScrollToTop />
 
       {/* Remove this for hide Error */}
-      {showError && <Error />}
+      {/* {showError && <Error />} */}
 
       {loading ? <Loading /> : (
         <>
