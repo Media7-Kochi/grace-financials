@@ -438,9 +438,11 @@ export default function Gallery() {
           {/* Instagram Profile Box */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 p-lg rounded-2xl flex flex-col items-center text-center w-full md:w-80 shrink-0">
             <div className="w-20 h-20 bg-surface-container rounded-full overflow-hidden mb-md border-2 border-secondary relative">
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 text-white font-bold text-headline-lg">
-                GF
-              </div>
+              <img
+                src="/grace_href.png"
+                alt="Grace Financial"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h3 className="font-semibold text-headline-sm text-white">
               Grace Financial Consultancy
